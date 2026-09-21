@@ -3,6 +3,9 @@ function isValidShift(hours) {
 }
 
 function calculatePay(hoursWorked, hourlyRate) {
+  if (hoursWorked < 0 || hourlyRate < 0) {
+    throw new Error("Hours and rate must be non-negative");
+  }
   let pay;
   if (hoursWorked > 8) {
     const regular = 8 * hourlyRate;
